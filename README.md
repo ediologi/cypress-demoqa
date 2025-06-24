@@ -13,6 +13,7 @@ This is an automated testing project built with **Cypress** and **Gherkin (Cucum
 
 ## 📁 Project Structure
 ```cypress/
+├── data/ # Test data files
 ├── e2e/ # .feature files and scenarios
 │   ├── homepage/
 │   └── textBox/
