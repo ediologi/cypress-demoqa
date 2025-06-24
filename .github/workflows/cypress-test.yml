@@ -5,14 +5,14 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
-  workflow_dispatch:
+  workflow_dispatch: # ✅ Allows manual runs from GitHub UI
 
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Checkout repo
+      - name: 📥 Checkout code
         uses: actions/checkout@v3
 
       - name: 🟢 Set up Node.js
@@ -26,7 +26,13 @@ jobs:
       - name: 🧪 Run Cypress tests
         run: npx cypress run --env baseUrl=${{ secrets.CYPRESS_BASE_URL }}
 
-      - name: 📤 Upload Mochawesome report (optional)
+      - name: 🧬 Merge Mochawesome reports
+        run: npx mochawesome-merge cypress/reports/mochawesome/*.json > mochawesome.json
+
+      - name: 🧾 Generate HTML test report
+        run: npx marge mochawesome.json --reportDir cypress/reports/mochawesome --inline
+
+      - name: 📤 Upload HTML report
         uses: actions/upload-artifact@v4
         with:
           name: mochawesome-report
