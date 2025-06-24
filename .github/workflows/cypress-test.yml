@@ -24,7 +24,7 @@ jobs:
         run: npm install
 
       - name: 🧪 Run Cypress tests
-        run: npm run test:full
+        run: npx cypress run --env baseUrl=${{ secrets.CYPRESS_BASE_URL }}
 
       - name: 📤 Upload Mochawesome report (optional)
         uses: actions/upload-artifact@v4
