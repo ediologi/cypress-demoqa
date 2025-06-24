@@ -1,0 +1,26 @@
+# Node modules
+node_modules/
+
+# Cypress default output
+cypress/screenshots/
+cypress/videos/
+
+# Mochawesome reports
+cypress/reports/
+mochawesome.json
+
+# Environment variables
+.env
+
+# Mac system files
+.DS_Store
+
+# VS Code project settings
+.vscode/
+
+# Cypress cache (optional, for cleanliness)
+.cache/
+Cypress/
+
+# OS generated files
+Thumbs.db
