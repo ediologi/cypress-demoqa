@@ -24,7 +24,9 @@ jobs:
         run: npm install
 
       - name: 🧪 Run Cypress tests
-        run: npx cypress run --env baseUrl=${{ secrets.CYPRESS_BASE_URL }}
+        run: npm run test:full
+        env:
+          baseUrl: ${{ secrets.CYPRESS_BASE_URL }}
 
       - name: 🧬 Merge Mochawesome reports
         run: npx mochawesome-merge cypress/reports/mochawesome/*.json > mochawesome.json
