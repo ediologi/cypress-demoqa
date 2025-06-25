@@ -20,6 +20,9 @@ jobs:
         with:
           node-version: 18
 
+      - name: 🧹 Clean old Mochawesome reports
+        run: rm -rf cypress/reports/mochawesome mochawesome.json
+
       - name: 📦 Install dependencies
         run: npm install
 
