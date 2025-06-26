@@ -13,6 +13,10 @@ class HomePage {
   clickElementsCard() {
     this.elementsCard().click();
   }
+
+  clickAlertsCard() {
+    this.alertsCard().click();
+  }
 }
 
 export const homePage = new HomePage();
